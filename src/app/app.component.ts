@@ -442,6 +442,7 @@ export class AppComponent implements OnInit {
       this.QuestionForm.value.DBTred_code = this.threadSelected
       this.QuestionForm.value.CREATEDBY = "0"
       this.Api.SubmitQuestion(this.QuestionForm.value).subscribe((data1) => {
+        this.ShowForm = false
         this.Api.getQuestion(this.threadSelected).subscribe((data) => {
           this.QuestionData = data;
           this.collectionSize = this.QuestionData.questions.length
@@ -458,6 +459,7 @@ export class AppComponent implements OnInit {
         QBMQBI_ID:this.SelectedQuestion
       })
       this.Api.EditQuestion(this.EditQuestionForm.value).subscribe((data1) => {
+        this.ShowForm = false
         this.Api.getQuestion(this.threadSelected).subscribe((data) => {
           this.QuestionData = data;
           this.collectionSize = this.QuestionData.questions.length
